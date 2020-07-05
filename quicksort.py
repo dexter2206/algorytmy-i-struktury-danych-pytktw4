@@ -1,7 +1,7 @@
 def partition(items):
     pivot = items[-1]
     left = 0
-    right = len(items) - 2
+    right = len(items) - 1
 
     while left < right:
         while left < right and items[left] <= pivot:
@@ -10,13 +10,23 @@ def partition(items):
         while right > left and items[right] >= pivot:
             right -= 1
 
-        items[left], items[right] = items[right], items[left]
+        if left < right:
+            items[left], items[right] = items[right], items[left]
 
-    items[right], items[-1] = items[-1], items[right]
-    return right
+
+    items[left], items[-1] = items[-1], items[left]
+    return left
+
+
+def quicksort(items):
+    if len(items) < 2:
+        return items
+    split = partition(items)
+    return quicksort(items[:split]) + [items[split]] + quicksort(items[split+1:])
+
 
 if __name__ == '__main__':
-    items = [3, 1, 0, 4, 2, -1, 5, 2]
-    print(partition(items))
-    print(items)
+    items = [3, 1, 0, 4, 2, -1, 5, 1]
+    print(quicksort(items))
+
 
