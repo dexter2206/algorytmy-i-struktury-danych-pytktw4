@@ -104,7 +104,8 @@ Funkcja ta powinna zwracać listę sum częściowych, tzn. listę składającą 
 - `peek()` - zwraca ostatni element ze stosu (ale go nie  ściąga!)
 - `__len__` - zwraca wysokość stosu
 2. Napisz program walidujący poprawność nawiasów w danym wyrażeniu. Użyj w tym celu stosu.
-3. Notacja postfixowa to sposób zapisu wyrażeń arytmetycznych, w którym operator jest umieszczony PO operandach. Na przykład wyrażenie "5 + 3" w notacji postfixowej przyjmuje postać "5 3 +", a wyrażenie "5 * (2 - 1) + 4" przyjmuje postać "5 2 1 - * 4 +". Można łatwo obliczyć wartość wyrażenia danego postacią infixową używając stosu. Algorytm wygląda następująco (zakładając poprawność wejściowego wyrażenia):
+3. Notacja postfixowa to sposób zapisu wyrażeń arytmetycznych, w którym operator jest umieszczony PO operandach. Na przykład wyrażenie "5 + 3" w notacji postfixowej przyjmuje postać "5 3 +", a wyrażenie "5 * (2 - 1) + 4" przyjmuje postać "5 2 1 - * 4 +". Można łatwo obliczyć wartość wyrażenia danego postacią postfixową używając stosu. Algorytm wygląda następująco (zakładając poprawność wejściowego wyrażenia):
+
    1. Zainicjuj pusty stos.
    2. Dla każdego elementu wyrażenia:
       - jeżeli ten element jest liczbą, odłóż go na stos
@@ -115,6 +116,22 @@ Funkcja ta powinna zwracać listę sum częściowych, tzn. listę składającą 
 4. Problem nachodzących przedziałów. Załóżmy, że mamy dane przedziały liczbowe postaci [a, b], na przykład: [1, 3], [5, 6], [2, 4]. Chcemy połączyć te, które na siebie nachodzą. W powyższym przykładzie mielibyśmy zatem [1, 4] oraz [5, 6]. Wymyśl używający stosu algorytm pozwalający na wykonanie takiej operacji.
 
 5. Czy da się zaimplementować (być może używając dodatkowej struktury danych) stos, w którym dostęp do bieżącego maximum jest realizowany w stałym czasie? Jeśli tak, zaimplementować klasę `MaxStack` posiadającą metodę `max()` zwracającą bieżące maksimum stosu.
+
+### Kopce
+
+1. Napisać klasę `Heap` implementującą kopiec. Klasa ta powinna przechowywać wewnątrzną listę oraz udostępniać metody pozwalające na zrealizowanie operacji:
+
+- push
+- pop
+- peak
+
+Do zrealizowania operacji na kopcu użyj modułu `heapq`.
+
+2. Zaimplementuj sortowanie przez kopcowanie. Algorytm wygląda następująco:
+
+    1. Utworz kopiec z danych wejściowych.
+    2. Ściągaj kolejno najmniejszy element z kopca i dopisuj go do listy wynikowej.
+    3. Zwróć listę wynikową.
 
 ### Listy dowiązane
 1. Zaimplementować w Pythonie listę dowiązaną. Spróbować odwzorować interfejs wbudowanej klasy `list`.
