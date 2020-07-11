@@ -1,6 +1,7 @@
 from bubble_sort import bubble_sort
+from merge_sort import merge_sort
 
-my_sort = bubble_sort
+my_sort = merge_sort
 
 def test_sorts_permuted_sequence():
     items = [2, 1, 5, 0, -1]
